@@ -11,20 +11,21 @@
     <h1 class="title"><%= title %></h1>
     <form class="formularioAgregar" action="/productos" enctype="multipart/form-data" method="post">
         <label for="title">Title</label>
-        <input type="text" name="title" placeholder="Nombre del producto">
+        <input type="text" name="title" id="title" placeholder="Nombre del producto">
         <label for="price">Price</label>
-        <input type="text" name="price" placeholder="Precio del producto">
+        <input type="text" name="price" id="price" placeholder="Precio del producto">
         <label for="photo">Thumbnail</label>
-        <input type="file" name="photo" value="Upload a file">
+        <input type="file" name="photo" id="photo" value="Upload a file">
         <button value="Upload product">Agregar producto</button>
     </form>
 
-    <h2>Productos</h2>
+    <div id="products">
 
+    </div>
 
 
     <div>
-        <h2></h2>
+        <h2>Centro de Mensajes</h2>
     </div>
 
     <script src="./socket.io/socket.io.min.js"></script>
