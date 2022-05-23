@@ -28,9 +28,14 @@ app.get('/',(req,res) => {
 
 const productos = []
 
-io.on('connection',(client)=>{
-    console.log("websocket funcionando")
-    client.emit('productos',productos)
+io.on('connection',(socket)=>{
+    console.log('nuevo cliente conectado', socket.id)
+    socket.emit('productos',productos)
+
+    socket.on("newProducto", producto => {
+        productos.push(producto)
+        io.sockets.emit('productos', productos)
+    })
 })
 
 const PORT = 8080
