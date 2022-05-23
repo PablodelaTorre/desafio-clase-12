@@ -4,7 +4,7 @@ const inputTitle = document.getElementById("title")
 const inputPrice = document.getElementById("price")
 const inputPhoto = document.getElementById("photo")
 const button = document .getElementById("button")
-const tablaProducts = document.getElementById("products")
+const tablaProducts = document.getElementById("tablaP")
 
 button.addEventListener('click', (e) => {
     const titulo = inputTitle.value
@@ -24,21 +24,12 @@ button.addEventListener('click', (e) => {
 socket.on('productos', (productos) => {
     tablaProducts.innerHTML = productos.map(p => {
         return(
-            `
-            <div class="container">
-            <table>
-                <tr class="filas">
-                    <th class="columnas">Title</th>
-                    <th class="columnas">Price</th>
-                    <th class="columnas">Thumbnail</th>
-                </tr>
-
+            `   
                 <tr class="filas">
                     <th class="columnas">${p.titulo}</th>
                     <th class="columnas">${p.precio}</th>
                     <th class="columnas">${p.foto}</th>
                 </tr>
-            </table>  
             `
     )
     }).join(" ")
