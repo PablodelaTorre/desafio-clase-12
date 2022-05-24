@@ -78,3 +78,10 @@ button {
 button:hover {
     transform: scale(1.1);
 }
+
+.nuevosMensajes {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+

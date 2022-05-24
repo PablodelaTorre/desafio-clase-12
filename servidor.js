@@ -28,13 +28,21 @@ app.get('/',(req,res) => {
 
 const productos = []
 
+const mensajes = []
+
 io.on('connection',(socket)=>{
     console.log('nuevo cliente conectado', socket.id)
     socket.emit('productos',productos)
+    socket.emit('mensajes', mensajes)
 
     socket.on("newProducto", producto => {
         productos.push(producto)
         io.sockets.emit('productos', productos)
+    })
+
+    socket.on('newMessage', mensaje => {
+        mensajes.push(mensaje)
+        io.sockets.emit('mensajes',mensajes)
     })
 })
 
