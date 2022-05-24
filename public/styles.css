@@ -83,5 +83,22 @@ button:hover {
     display: flex;
     flex-direction: column;
     background-color: white;
+    border-radius: 0.2rem;
 }
 
+.botonMensajes {
+    height: 5vh;
+    width: 20vw;
+}
+
+.mail {
+    color: aqua;
+}
+
+.fecha {
+    color: red;
+}
+
+.mensaje {
+    font-weight: bold;
+}

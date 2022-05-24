@@ -27,18 +27,21 @@ button.addEventListener('click', (e) => {
 })
 
 buttonMensajes.addEventListener('click',(e) => {
-    let date = new Date()
-    const fecha = [date.getDay(),date.getMonth(),date.getFullYear(),date.getHours(),date.getMinutes(),date.getSeconds()]
-    const mail = inputMail.value
-    const texto = inputMensaje.value
-    const mensaje = {
-        mail: mail,
-        texto: texto,
-        fecha:fecha
-    }
-    console.log(fecha)
-    console.log(mensaje)
-    socket.emit("newMessage",mensaje)
+
+    if(inputMensaje.value.length > 0){
+        let date = new Date()
+        const fecha = [date.getDay(),date.getMonth(),date.getFullYear(),date.getHours(),date.getMinutes(),date.getSeconds()]
+        const mail = inputMail.value
+        const texto = inputMensaje.value
+        const mensaje = {
+            mail: mail,
+            texto: texto,
+            fecha:fecha
+        }
+        console.log(fecha)
+        console.log(mensaje)
+        socket.emit("newMessage",mensaje)  
+    }   
 })
 
 
